@@ -173,7 +173,7 @@ class ProjectBrowser extends React.Component {
     ];
   }
 
-  renderItem({ path, dead }) {
+  renderItem({ path, dead, deprecated }) {
     const { currentPatchPath, selectedPatchPath } = this.props;
 
     const isOpen = foldMaybe(false, R.equals(path), currentPatchPath);
@@ -191,6 +191,7 @@ class ProjectBrowser extends React.Component {
         key={path}
         patchPath={path}
         dead={dead}
+        deprecated={deprecated}
         label={getBaseName(path)}
         isOpen={isOpen}
         onDoubleClick={() => switchPatch(path)}
